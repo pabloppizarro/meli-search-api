@@ -8,6 +8,9 @@ Debido a que este proyecto se basa en un challenge técnico, se omitieron alguna
 - Testing.
 - CD/CI
 
+$Cambios$:
+En el documento, se pedía devolver el producto con una imagen propiedad `picture`. Se cambio al array de imagenes `pictures:[string]` para poder tener un carousel de imagenes al ver el detalle de un producto en particular.
+
 ### Uso
 
 Crear un archivo `.env` o configurar las siguientes variables de entorno:
@@ -34,7 +37,7 @@ Response:
   };
   categories: [string];
   items: [
-        {
+    {
         id: string;
         title: string;
         price: {
@@ -45,7 +48,34 @@ Response:
         picture: string;
         condition: string;
         free_shipping: boolean;
-        }
-    ]
+    }
+  ]
+}
+```
+
+**GET /items/:id**
+
+```
+
+Response:
+{
+  author: {
+    name: string;
+    lastName: string;
+  };
+  item: {
+    id: string;
+    title: string;
+    price: {
+        currency: string;
+        amount: number;
+        decimals: number;
+    };
+    pictures: [string];
+    condition: string;
+    free_shipping: boolean;
+    sold_quantity: number;
+    description: string;
+  }
 }
 ```
