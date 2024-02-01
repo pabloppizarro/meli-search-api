@@ -11,7 +11,8 @@ Debido a que este proyecto se basa en un challenge técnico, se omitieron alguna
 $Cambios$:
 En el documento, se pedía devolver el producto con una imagen propiedad `picture`. Se cambio al array de imagenes `pictures:[string]` para poder tener un carousel de imagenes al ver el detalle de un producto en particular.
 
-###Approach
+### Approach
+
 Aprovechando la oportunidad, se eligió usar Express con TypeScript en vez de lo que normalmente usamos que seria vanila JS. Tambien, tomando de las fortalezas de la POO, se hizo un acercamiento muy superficial a una arquitectura CLEAN del tipo Hexagonal. Dado el caso se podria haber resulto perfectamente con menos sobreingenieria.
 
 ### Uso
