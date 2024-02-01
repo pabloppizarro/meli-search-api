@@ -1,5 +1,10 @@
+import { IItem } from "./IItem";
+
 export interface IGetItems {
-  author: any;
+  author: {
+    name: string;
+    lastName: string;
+  };
   categories: [string];
-  items: [any];
+  items: IItem[];
 }
