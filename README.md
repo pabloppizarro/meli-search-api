@@ -21,6 +21,7 @@ El proyecto se despliega en el puerto `3001` para no tener conflictos al levanta
 ### Recursos
 
 La **API** disponibiliza dos recursos `GET` para ser consumidos:
+
 **GET /items?q="query_string"**
 
 ```
