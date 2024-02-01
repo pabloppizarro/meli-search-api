@@ -1,7 +1,7 @@
-import { ApiServer } from "./apiserver";
+import { ApiServer } from "./infrastructure/ApiServer";
 
 export async function main(): Promise<void> {
-  await ApiServer.run(3000);
+  await ApiServer.run(3001);
 }
 
 main();
