@@ -13,7 +13,10 @@ export class GetItemsService {
     }
     const { results } = itemsResult;
 
-    const categories = results.map((item: any) => item.category_id);
+    const categoriesMap = new Set<string>(
+      results.map((item: any) => item.category_id)
+    );
+    const categories = Array.from<string>(categoriesMap);
 
     const items: IItem[] = results.map((item: any) => ({
       id: item.id,

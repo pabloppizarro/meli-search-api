@@ -5,6 +5,6 @@ export interface IGetItems {
     name: string;
     lastName: string;
   };
-  categories: [string];
+  categories: string[];
   items: IItem[];
 }
