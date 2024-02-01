@@ -1,3 +1,3 @@
-export interface IItemRepository<T> {
-  getItems(searchKey: string): Promise<T>;
+export interface IItemRepository {
+  getItems(searchKey: string): Promise<any>;
 }
