@@ -1,13 +1,15 @@
 import { Router } from "express";
 import { MeliItemsApiRepository } from "./repositories/MeliItemsApiRepository";
 import { GetItemsService } from "../core/application/GetItems.service";
+import { GetItemDetailService } from "../core/application/GetItemDetail.service";
 
 const meliRepo = new MeliItemsApiRepository();
 const getItemsService = new GetItemsService(meliRepo);
+const getItemDetailService = new GetItemDetailService(meliRepo);
 
 const router = Router();
 
-router.route("/").get((req, res) => {
+router.route("/").get((req, res, next) => {
   const { q } = req.query;
 
   if (!q || typeof q !== "string") {
@@ -19,13 +21,24 @@ router.route("/").get((req, res) => {
         res.status(200).json(itemsResult);
       })
       .catch((err) => {
-        throw res.status(500).send({ msg: "Something wrong", err });
+        next(err);
       });
   }
 });
 
-router.route("/:id").get((req, res) => {
-  res.status(200).json({ id: req.params.id });
+router.route("/:id").get((req, res, next) => {
+  if (!req.params.id) {
+    res.status(400).send("Id not found");
+  } else {
+    getItemDetailService
+      .getItemDetail(req.params.id)
+      .then((itemDetail) => {
+        res.status(200).json(itemDetail);
+      })
+      .catch((err) => {
+        next(err);
+      });
+  }
 });
 
 export default router;
