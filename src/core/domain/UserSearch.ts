@@ -1,3 +1,6 @@
+//Unused, just for example. This entity could be implemented to being
+//stored in a db repo or another service for tracking users queries, metrics and marketing.
+
 export class UserSearch {
   private _key: string;
   private _deviceId: string;
