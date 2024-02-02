@@ -10,13 +10,13 @@ const getItemDetailService = new GetItemDetailService(meliRepo);
 const router = Router();
 
 router.route("/").get((req, res, next) => {
-  const { q } = req.query;
+  const { search } = req.query;
 
-  if (!q || typeof q !== "string") {
+  if (!search || typeof search !== "string") {
     res.status(400).send("Query string not found");
   } else {
     getItemsService
-      .getItems(q)
+      .getItems(search)
       .then((itemsResult) => {
         res.status(200).json(itemsResult);
       })
