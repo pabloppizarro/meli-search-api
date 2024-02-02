@@ -13,7 +13,7 @@ export class ApiServer {
 
     morgan("tiny");
 
-    app.use("/items", ItemsRoute);
+    app.use("/api/items", ItemsRoute);
 
     app.listen(port, () => {
       console.log(`server is running at port: ${port} `);
