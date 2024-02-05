@@ -21,7 +21,7 @@ router.route("/").get((req, res, next) => {
         res.status(200).json(itemsResult);
       })
       .catch((err) => {
-        next(err);
+        res.status(400).send(err);
       });
   }
 });
@@ -36,7 +36,7 @@ router.route("/:id").get((req, res, next) => {
         res.status(200).json(itemDetail);
       })
       .catch((err) => {
-        next(err);
+        res.status(400).send(err);
       });
   }
 });
