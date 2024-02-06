@@ -1,0 +1,16 @@
+{
+  "apps": [
+    {
+      "name": "api",
+      "script": "ts-node-dev --respawn src/main.ts",
+      "merge_logs": true,
+      "max_restarts": 20,
+      "instances": 1,
+      "max_memory_restart": "256M",
+      "env": {
+        "PORT": 3001,
+        "NODE_ENV": "production"
+      }
+    }
+  ]
+}
