@@ -1,7 +1,9 @@
 import { Router } from "express";
-import { MeliItemsApiRepository } from "./repositories/MeliItemsApiRepository";
-import { GetItemsService } from "../core/application/GetItems.service";
 import { GetItemDetailService } from "../core/application/GetItemDetail.service";
+import { GetItemsService } from "../core/application/GetItems.service";
+import { MeliItemsApiRepository } from "./repositories/MeliItemsApiRepository";
+
+import { z } from "zod";
 
 const meliRepo = new MeliItemsApiRepository();
 const getItemsService = new GetItemsService(meliRepo);
@@ -9,24 +11,35 @@ const getItemDetailService = new GetItemDetailService(meliRepo);
 
 const router = Router();
 
-router.route("/").get((req, res, next) => {
-  const { search } = req.query;
+//Search query squema for validation
+const QuerySchema = z.object({
+  search: z
+    .string({
+      required_error: "Search key is required",
+    })
+    .max(120, "Too large")
+    .min(3, "Too short"),
 
-  if (!search || typeof search !== "string") {
-    res.status(400).send("Query string not found");
-  } else {
-    getItemsService
-      .getItems(search)
-      .then((itemsResult) => {
-        res.status(200).json(itemsResult);
-      })
-      .catch((err) => {
-        res.status(400).send(err);
-      });
-  }
+  //add more query keys to validate as you need.
 });
 
-router.route("/:id").get((req, res, next) => {
+router.route("/").get((req, res) => {
+  const query = QuerySchema.safeParse(req.query);
+  if (!query.success) {
+    return res.status(400).send(query.error.issues);
+  }
+
+  getItemsService
+    .getItems(query.data.search)
+    .then((itemsResult) => {
+      res.status(200).json(itemsResult);
+    })
+    .catch((err) => {
+      res.status(400).send(err);
+    });
+});
+
+router.route("/:id").get((req, res) => {
   if (!req.params.id) {
     res.status(400).send("Id not found");
   } else {
