@@ -2,7 +2,7 @@
 
 #### Notas del desarrollador:
 
-Debido a que este proyecto se basa en un challenge técnico, se omitieron algunas buenas prácticas de desarrollo por temas de practiciadad, tiempo de entrega vs tiempo disponible del dev, etc:
+Debido a que este proyecto se basa en un challenge técnico, nose hizo mucho énfasis algunas buenas prácticas de desarrollo por temas de practicidad, tiempo de entrega vs tiempo disponible del dev, etc:
 
 - Versionado en ramas, pull request y code review.
 - Testing.
