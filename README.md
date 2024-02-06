@@ -2,7 +2,7 @@
 
 #### Notas del desarrollador:
 
-Debido a que este proyecto se basa en un challenge técnico, nose hizo mucho énfasis algunas buenas prácticas de desarrollo por temas de practicidad, tiempo de entrega vs tiempo disponible del dev, etc:
+Debido a que este proyecto se basa en un challenge técnico, no se hizo mucho énfasis algunas buenas prácticas de desarrollo por temas de practicidad, tiempo de entrega vs tiempo disponible del dev, etc:
 
 - Versionado en ramas, pull request y code review.
 - Testing.
@@ -13,7 +13,7 @@ En el documento, se pedía devolver el producto con una imagen propiedad `pictur
 
 ### Approach
 
-Aprovechando la oportunidad, se eligió usar Express con TypeScript en vez de lo que normalmente usamos que seria vanila JS. Tambien, tomando de las fortalezas de la POO, se hizo un acercamiento muy superficial a una arquitectura CLEAN del tipo Hexagonal. Dado el caso se podria haber resulto perfectamente con menos sobreingenieria.
+Aprovechando la oportunidad, se eligió usar Express con TypeScript en vez de lo que normalmente usamos que seria vanilla JS. Tambien, tomando de las fortalezas de la POO, se hizo un acercamiento muy superficial a una arquitectura CLEAN del tipo Hexagonal. Dado el caso se podria haber resulto perfectamente con menos sobreingenieria.
 
 ### Uso
 
@@ -29,7 +29,7 @@ El proyecto se despliega en el puerto `3001` para no tener conflictos al levanta
 
 La **API** disponibiliza dos recursos `GET` para ser consumidos:
 
-**GET /items?q="query_string"**
+**GET /items?search="query_string"**
 
 ```
 
