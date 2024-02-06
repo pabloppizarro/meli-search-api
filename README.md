@@ -23,13 +23,21 @@ Crear un archivo `.env` o configurar las siguientes variables de entorno:
 MELI_ITEMS_API = "https://api.mercadolibre.com"
 ```
 
+#### Docker
+
+Para correr la api rest usando docker nos posicionamos dentro de la carpeta root del proyecto. Luego:
+
+`docker build -t meli-search-api . `
+
+`docker run -it -p 3001:3001 meli-search-api  `
+
 El proyecto se despliega en el puerto `3001` para no tener conflictos al levantar una app Node para frontend como React o NextJS que utilizan el mismo puerto.
 
 ### Recursos
 
 La **API** disponibiliza dos recursos `GET` para ser consumidos:
 
-**GET /items?search="query_string"**
+**GET /api/items?search="query_string"**
 
 ```
 
@@ -57,7 +65,7 @@ Response:
 }
 ```
 
-**GET /items/:id**
+**GET /api/items/:id**
 
 ```
 
