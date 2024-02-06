@@ -15,12 +15,33 @@ En el documento, se pedía devolver el producto con una imagen propiedad `pictur
 
 Aprovechando la oportunidad, se eligió usar Express con TypeScript en vez de lo que normalmente usamos que seria vanilla JS. Tambien, tomando de las fortalezas de la POO, se hizo un acercamiento muy superficial a una arquitectura CLEAN del tipo Hexagonal. Dado el caso se podria haber resulto perfectamente con menos sobreingenieria.
 
+#### Stack:
+
+- Node
+- ExpressTS Node-ts
+- Jest & Supertest
+- Pm2
+- Docker
+
 ### Uso
 
 Crear un archivo `.env` o configurar las siguientes variables de entorno:
 
 ```
 MELI_ITEMS_API = "https://api.mercadolibre.com"
+```
+
+Correr en local y comandos de ayuda:
+
+```
+  "scripts": {
+    "pm2": "pm2 start processes.json --no-daemon",
+    "test": "jest",
+    "test-dev": "jest --watchAll",
+    "dev": "ts-node-dev --respawn src/main.ts",
+    "build": "tsc",
+    "lint": "eslint . --ext .ts"
+  },
 ```
 
 #### Docker
